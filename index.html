@@ -9,13 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js"></script>
-        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
 
     <style id="compiled-css" type="text/css">
     :root{
@@ -75,32 +69,41 @@
       background: var(--scrollTrack);
     }
 		
-	.scroll-container {
+	.scroll-container{
+	  max-width: 100%;
+	  overflow: hidden;
+	  background-image: url("https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/oJsslZ.jpg");
+	  background-repeat: repeat;
+	  padding: 0;
+	  margin: 0;
+	  border: 0;
+	}
 	
-	max-width: 100%; 
-	overflow-y: hidden;
-	overflow: hidden;
-	background-image: url("https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/oJsslZ.jpg");
-	background-repeat: repeat;
-	
-	.row{
-	  flex-wrap: nowrap;
+	.scroll-container .row{
+	  flex-wrap: nowrap !important;
 	  overflow-x: auto;
 	  overflow-y: hidden;
-	  display: inline-flex;
+	  display: flex;
 	  max-width: 100%;
-	 } 
-	 
+	  margin: 0;           /* bootstrap adds margins */
+	  padding: 0 8px;      /* small breathing room */
+	  scroll-snap-type: x mandatory; /* nice feel */
+	  -webkit-overflow-scrolling: touch;
 	}
 	
 	.loop-item{
-	  width:360px;
-	  min-width:360px;
-	  max-width:360px;
-	  margin:15px 0;
-	  font-size:16px;
-	  line-height:1.16em;
-	  
+	  flex: 0 0 auto;
+	  width: clamp(260px, 82vw, 360px);
+	  margin: 14px 8px;
+	  font-size: 16px;
+	  line-height: 1.25;
+	  scroll-snap-align: start;
+	}
+
+	.loop-item img{
+	  width: 100%;
+	  height: auto;
+	  display: block;
 	}
 	
 	@media screen and (min-width: 600px)  {
@@ -166,7 +169,7 @@
     <div class="container scroll-container text-center" style="padding:0; margin:0; border:0;">
 
 
- <h2 class="text-center" class="whatsnew" style="color:#ffffff; font-family: sans-serif; background-color: #007bff; font-size:24px; font-weight:bold; padding:10px 0;">NEWS! SCROLL RIGHT ➡</h2>
+ <h2 class="text-center whatsnew" style="color:#ffffff; font-family: sans-serif; background-color: #007bff; font-size:24px; font-weight:bold; padding:10px 0;">NEWS! SCROLL RIGHT ➡</h2>
 
   <div class="row">
 
@@ -250,4 +253,5 @@
   </script>
 
 </html>
+
 
