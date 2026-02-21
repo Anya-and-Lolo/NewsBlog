@@ -70,6 +70,7 @@
     }
 		
 	.scroll-container{
+	  position: relative;	
 	  max-width: 100%;
 	  overflow: hidden;
 	  background-image: url("https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/oJsslZ.jpg");
@@ -78,7 +79,28 @@
 	  margin: 0;
 	  border: 0;
 	}
+
+	.scroll-container::before,
+	.scroll-container::after{
+	  content:"";
+	  position:absolute;
+	  top: 54px; /* below the NEWS header */
+	  bottom: 0;
+	  width: 18px;
+	  pointer-events:none;
+	  z-index: 5;
+	}
+
+	.scroll-container::before{
+	  left: 0;
+	  background: linear-gradient(to right, rgba(0,0,0,0.55), transparent);
+	}
 	
+	.scroll-container::after{
+	  right: 0;
+	  background: linear-gradient(to left, rgba(0,0,0,0.55), transparent);
+	}
+		
 	.scroll-container .row{
 	  flex-wrap: nowrap !important;
 	  overflow-x: auto;
@@ -86,7 +108,8 @@
 	  display: flex;
 	  max-width: 100%;
 	  margin: 0;           /* bootstrap adds margins */
-	  padding: 0 8px;      /* small breathing room */
+	  padding: 0 6px;       /* was 0 8px */
+	  gap: 10px;            /* flex gap instead of big margins */
 	  scroll-snap-type: x mandatory; /* nice feel */
 	  -webkit-overflow-scrolling: touch;
 	}
@@ -94,10 +117,11 @@
 	.loop-item{
 	  flex: 0 0 auto;
 	  width: clamp(260px, 82vw, 360px);
-	  margin: 14px 8px;
+	  margin: 10px 0;
 	  font-size: 16px;
-	  line-height: 1.25;
+	  line-height: 1.35;
 	  scroll-snap-align: start;
+	  color: var(--text);
 	}
 
 	.loop-item img{
@@ -105,20 +129,55 @@
 	  height: auto;
 	  display: block;
 	}
+
+	/* Make all normal text darker (Bootstrap makes some stuff too pale) */
+	.scroll-container,
+	.scroll-container p,
+	.scroll-container .small,
+	.scroll-container .text-muted{
+	  color: rgba(27,27,27,0.78) !important; /* similar to your site muted */
+	}
+	
+	/* Titles: use your brand red but slightly calmer */
+	.loop-item h4,
+	.loop-item .h5{
+	  color: rgba(244,24,76,0.92) !important; /* your --brand */
+	  font-weight: 900;
+	  letter-spacing: -0.2px;
+	  margin-bottom: 6px;
+	}
+	
+	/* Meta line a touch darker than Bootstrap's default */
+	.entry-meta{
+	  color: rgba(27,27,27,0.60) !important;
+	}
+	
+	/* Remove some Bootstrap spacing so cards feel tighter */
+	.loop-item .mb-2{ margin-bottom: .45rem !important; }
+	.loop-item .mt-2{ margin-top: .45rem !important; }
 	
 	@media screen and (min-width: 600px)  {
 	}
 	
 	@media only screen and (max-width: 600px), screen and (max-device-width: 600px)  {
-	
 	.loop-item{
 	  width:360px;
 	  min-width:360px;
 	  max-width:360px;
-	  font-size:18px;
+      width: clamp(250px, 86vw, 340px);
+      font-size: 16px; /* LIKE WEBSITE */
+      line-height: 1.35;
 	  line-height:20px;
 	 }
-	
+	}
+
+	.whatsnew{
+	  margin: 0;
+	  padding: 10px 0;
+	  font: 900 18px/1.1 system-ui, sans-serif;
+	  color: #fff;
+	  background: rgba(244, 24, 76, 0.92);
+	  letter-spacing: 0.2px;
 	}
 	
 	/* OPTIONAL styles to include Bootstrap 4 elements. Uncomment if your theme doesn't use Bootstrap*
@@ -253,5 +312,6 @@
   </script>
 
 </html>
+
 
 
