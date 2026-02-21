@@ -79,27 +79,6 @@
 	  margin: 0;
 	  border: 0;
 	}
-
-	.scroll-container::before,
-	.scroll-container::after{
-	  content:"";
-	  position:absolute;
-	  top: 54px; /* below the NEWS header */
-	  bottom: 0;
-	  width: 18px;
-	  pointer-events:none;
-	  z-index: 5;
-	}
-
-	.scroll-container::before{
-	  left: 0;
-	  background: linear-gradient(to right, rgba(0,0,0,0.55), transparent);
-	}
-	
-	.scroll-container::after{
-	  right: 0;
-	  background: linear-gradient(to left, rgba(0,0,0,0.55), transparent);
-	}
 		
 	.scroll-container .row{
 	  flex-wrap: nowrap !important;
@@ -294,6 +273,7 @@
   </script>
 
 </html>
+
 
 
 
