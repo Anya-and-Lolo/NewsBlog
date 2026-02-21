@@ -3,278 +3,209 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Anya & Lolo News</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script type="text/javascript" src="/js/lib/dummy.js"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
 
     <style id="compiled-css" type="text/css">
-    :root{
-      --brand: #f4184c;
-      --brand2: rgba(244, 24, 76, 0.12);
+      :root{
+        --brand: #f4184c;
+        --bg: #ffffff;
+        --text: #1b1b1b;
+        --muted: rgba(27,27,27,0.72);
 
-      --bg: #ffffff;
-      --card: rgba(255,255,255,0.88);
-      --border: rgba(20,20,20,0.10);
-      --text: #1b1b1b;
-      --muted: rgba(27,27,27,0.70);
+        --radius: 16px;
 
-      --dot1: rgba(255, 182, 193, 0.55);
-      --dot2: rgba(173, 216, 230, 0.55);
-      --dot3: rgba(221, 160, 221, 0.45);
-      --dot4: rgba(255, 250, 205, 0.55);
-
-      --radius: 16px;
-      --shadow: 0 10px 28px rgba(0,0,0,.10);
-    }
-
-      :root {
-        color-scheme: dark;
+        --scrollTrack: #226cbb;
+        --scrollThumb: #56a7fe;
       }
 
-    /* Scrollbar styling (page + any scrollable elements you control) */
-    :root{
-      --scrollTrack: #226cbb;  /* dark */
-      --scrollThumb: #56a7fe;  /* light */
-    }
-    
-    /* Firefox */
-    html{
-      scrollbar-color: var(--scrollThumb) var(--scrollTrack);
-      scrollbar-width: auto;
-    }
-    
-    /* Chrome/Edge/Safari */
-    ::-webkit-scrollbar{
-      width: 13px;
-      height: 13px; /* horizontal */
-    }
-    ::-webkit-scrollbar-track{
-      background: var(--scrollTrack);
-    }
-    ::-webkit-scrollbar-thumb{
-      background: var(--scrollThumb);
-      border-radius: 999px;
-      border: 3px solid var(--scrollTrack);
-    }
-    ::-webkit-scrollbar-thumb:hover{
-      filter: brightness(0.95);
-    }
-    
-    /* Scrollbar corner (where two scrollbars meet) */
-    ::-webkit-scrollbar-corner{
-      background: var(--scrollTrack);
-    }
-		
-	.scroll-container{
-	  position: relative;	
-	  max-width: 100%;
-	  overflow: hidden;
-	  background-image: url("https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/oJsslZ.jpg");
-	  background-repeat: repeat;
-	  padding: 0;
-	  margin: 0;
-	  border: 0;
-	}
-		
-	.scroll-container .row{
-	  flex-wrap: nowrap !important;
-	  overflow-x: auto;
-	  overflow-y: hidden;
-	  display: flex;
-	  max-width: 100%;
-	  margin: 0;           /* bootstrap adds margins */
-	  padding: 0 6px;       /* was 0 8px */
-	  gap: 10px;            /* flex gap instead of big margins */
-	  scroll-snap-type: x mandatory; /* nice feel */
-	  -webkit-overflow-scrolling: touch;
-	}
-	
-	.loop-item{
-	  flex: 0 0 auto;
-	  width: clamp(260px, 82vw, 360px);
-	  margin: 10px 0;
-	  font-size: 16px;
-	  line-height: 1.35;
-	  scroll-snap-align: start;
-	  color: var(--text);
-	}
+      :root{ color-scheme: dark; }
 
-	.loop-item img{
-	  width: 100%;
-	  height: auto;
-	  display: block;
-	}
+      /* Scrollbar styling */
+      html{
+        scrollbar-color: var(--scrollThumb) var(--scrollTrack);
+        scrollbar-width: auto;
+      }
+      ::-webkit-scrollbar{ width: 13px; height: 13px; }
+      ::-webkit-scrollbar-track{ background: var(--scrollTrack); }
+      ::-webkit-scrollbar-thumb{
+        background: var(--scrollThumb);
+        border-radius: 999px;
+        border: 3px solid var(--scrollTrack);
+      }
+      ::-webkit-scrollbar-thumb:hover{ filter: brightness(0.95); }
+      ::-webkit-scrollbar-corner{ background: var(--scrollTrack); }
 
-	/* Make all normal text darker (Bootstrap makes some stuff too pale) */
-	.scroll-container,
-	.scroll-container p,
-	.scroll-container .small,
-	.scroll-container .text-muted{
-	  color: rgba(27,27,27,0.78) !important; /* similar to your site muted */
-	}
-	
-	/* Titles: use your brand red but slightly calmer */
-	.loop-item h4,
-	.loop-item .h5{
-	  color: rgba(244,24,76,0.92) !important; /* your --brand */
-	  font-weight: 900;
-	  letter-spacing: -0.2px;
-	  margin-bottom: 6px;
-	}
-	
-	/* Meta line a touch darker than Bootstrap's default */
-	.entry-meta{
-	  color: rgba(27,27,27,0.60) !important;
-	}
-	
-	/* Remove some Bootstrap spacing so cards feel tighter */
-	.loop-item .mb-2{ margin-bottom: .45rem !important; }
-	.loop-item .mt-2{ margin-top: .45rem !important; }
-	
-	@media screen and (min-width: 600px)  {
-	}
-	
-	@media only screen and (max-width: 600px), screen and (max-device-width: 600px)  {
-	.loop-item{
-	  width:360px;
-	  min-width:360px;
-	  max-width:360px;
-      width: clamp(250px, 86vw, 340px);
-      font-size: 16px; /* LIKE WEBSITE */
-      line-height: 1.35;
-	  line-height:20px;
-	 }
-	}
+      .scroll-container{
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        background-image: url("https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/oJsslZ.jpg");
+        background-repeat: repeat;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
 
-	.whatsnew{
-	  margin: 0;
-	  padding: 10px 0;
-	  font: 900 18px/1.1 system-ui, sans-serif;
-	  color: #fff;
-	  background: rgba(244, 24, 76, 0.92);
-	  letter-spacing: 0.2px;
-	}
-	
-	/* OPTIONAL styles to include Bootstrap 4 elements. Uncomment if your theme doesn't use Bootstrap*
-	.row {
-	    display: -webkit-box;
-	    display: -webkit-flex;
-	    display: -moz-box;
-	    display: -ms-flexbox;
-	    display: flex;
-	    -webkit-flex-wrap: wrap;
-	    -ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-	}
-	.col {
-	    position: relative;
-	    width: 100%;
-	
-	    -webkit-flex-basis: 0;
-	    -ms-flex-preferred-size: 0;
-	    flex-basis: 0;
-	    -webkit-box-flex: 1;
-	    -webkit-flex-grow: 1;
-	    -moz-box-flex: 1;
-	    -ms-flex-positive: 1;
-	    flex-grow: 1;
-	    min-width: 0;
-	    max-width: 100%;
-	}
-	.mb-2, .my-2 {
-	    margin-bottom: .5rem!important;
-	}
-	.mb-4, .my-4 {
-	    margin-bottom: 1.5rem!important;
-	}
-	.text-center {
-	    text-align: center!important;
-	}
-	.text-left {
-	    text-align: left!important;
-	}
-	*/
+      /* NEWS header (more pace + larger) */
+      .whatsnew{
+        margin: 0;
+        padding: 14px 10px;             /* more breathing room */
+        font: 1000 22px/1.15 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: #fff;
+        background: rgba(244, 24, 76, 0.92);
+        letter-spacing: 0.4px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.22);
+      }
+
+      @media (max-width: 600px){
+        .whatsnew{
+          padding: 16px 10px;
+          font-size: 20px;              /* still big, but fits */
+        }
+      }
+
+      /* Horizontal row (tight, smooth) */
+      .scroll-container .row{
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        max-width: 100%;
+        margin: 0;
+        padding: 10px 10px 12px;        /* more space under header */
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Card */
+      .loop-item{
+        flex: 0 0 auto;
+        width: clamp(260px, 82vw, 360px);
+        margin: 0;                      /* gap handles spacing */
+        font-size: 16px;
+        line-height: 1.38;
+        scroll-snap-align: start;
+
+        /* subtle card feel, still your look */
+        background: rgba(255,255,255,0.92);
+        border-radius: var(--radius);
+        padding: 12px;
+        box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+      }
+
+      /* Images */
+      .loop-item img{
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      /* Text colors (match website: dark grey-ish) */
+      .scroll-container,
+      .scroll-container p,
+      .scroll-container .small,
+      .scroll-container .text-muted{
+        color: var(--muted) !important;
+      }
+
+      /* Titles */
+      .loop-item h4,
+      .loop-item .h5{
+        color: rgba(244,24,76,0.92) !important;
+        font-weight: 1000;
+        letter-spacing: -0.2px;
+        margin: 10px 0 6px;
+      }
+
+      .entry-meta{
+        color: rgba(27,27,27,0.62) !important;
+      }
+
+      /* Trim bootstrap spacing a bit */
+      .loop-item .mb-2{ margin-bottom: .5rem !important; }
+      .loop-item .mt-2{ margin-top: .55rem !important; }
+
+      /* Buttons: keep bootstrap but make them feel consistent */
+      .loop-item .btn{
+        border-radius: 12px;
+        font-weight: 900;
+      }
+      .loop-item .btn-primary{
+        background-color: var(--brand) !important;
+        border-color: var(--brand) !important;
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 600px){
+        .scroll-container .row{
+          padding: 10px 8px 12px;
+          gap: 10px;
+        }
+        .loop-item{
+          width: clamp(250px, 86vw, 340px);
+          font-size: 16px;
+          line-height: 1.38;
+          padding: 12px;
+        }
+      }
     </style>
 
     <script id="insert"></script>
-
   </head>
+
   <body>
     <div class="container scroll-container text-center" style="padding:0; margin:0; border:0;">
+      <h2 class="text-center whatsnew">NEWS! SCROLL RIGHT ➡</h2>
 
- <h2 class="text-center whatsnew">NEWS! SCROLL RIGHT ➡</h2>
+      <div class="row">
 
-  <div class="row">
+        <div class="loop-item col">
+          <a target="_blank" rel="noopener"
+             href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true">
+            <img src="https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/Blog-Anya_and_Lolo_Substack_Newsletter_RPG_Maker_Free_Plugins_Gamedev_Assets_Game_Development_Resources_RPG_Maker_Tips_Tricks.jpg"
+                 class="img-fluid mb-2" alt="">
+          </a>
 
-    <div class="loop-item col">
-      <a target="_blank" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" class="display-block"><img width="600" height="400" src="https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/Blog-Anya_and_Lolo_Substack_Newsletter_RPG_Maker_Free_Plugins_Gamedev_Assets_Game_Development_Resources_RPG_Maker_Tips_Tricks.jpg" class="img-fluid rounded-lg mb-2" alt=""></a>
-<a target="_blank" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"><h4 class="h5 text-left" style="color:#e53b44;">What If All RPG Maker News Were Delivered Right to Your Inbox? 💌</h4></a>
-<div class="entry-meta text-left text-muted small">
- <i><span class="posted-on">Posted on <a target="_blank" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" rel="bookmark"><time class="entry-date published" datetime="2025-11-17T09:44:45+00:00">November 17, 2025</time></a></span><span class="byline"> by<span class="author vcard"> <a class="url fn n" href="http://anya-and-lolo.itch.io/">Anya & Lolo</a></span></span></i>
-</div>
-<div class="text-left mt-2"><p>If you're interested in free RPG Maker plugins, tips, game development tutorials, and assets, subscribe to our Game Development Digest! </p></div>
-<div class="text-center"><a target="_blank" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" class="btn btn-primary" style="background-color: #f4184c; border-color: #f4184c;"><b>✍ Yes! Send Me the Plugins</b></a></div>     
-    </div><!--//loop item-->
-	
-    <div class="loop-item col">
-      <a target="_blank" href="https://itch.io/s/163176/happy-halloween-sale-" class="display-block"><img width="600" height="400" src="https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/Blog-Anya_and_Lolo_Halloween.jpg" class="img-fluid rounded-lg mb-2" alt=""></a>
-<a target="_blank" href="https://itch.io/s/163176/happy-halloween-sale-"><h4 class="h5 text-left" style="color:#e53b44;">It's Here! Happy Halloween Sale 🎃 Will You Join The Party? 👻</h4></a>
-<div class="entry-meta text-left text-muted small">
- <i><span class="posted-on">Posted on <a target="_blank" href="https://itch.io/s/163176/happy-halloween-sale-" rel="bookmark"><time class="entry-date published" datetime="2025-10-26T09:44:45+00:00">October 26, 2025</time></a></span><span class="byline"> by<span class="author vcard"> <a class="url fn n" href="http://anya-and-lolo.itch.io/">Anya & Lolo</a></span></span></i>
-</div>
-<div class="text-left mt-2"><p>It’s been too long since our last sale, so we’re throwing open the doors to a Halloween party full of treats (and no tricks!) 🦇💜  </p></div>
-<div class="text-center"><a target="_blank" href="https://itch.io/s/163176/happy-halloween-sale-" class="btn btn-primary"><b>Will You Join the Fun? 🍬</b></a></div>     
-    </div><!--//loop item-->
-	
-    <div class="loop-item col">
-      <a target="_blank" href="https://forms.gle/db2EJA1Je6y19i6f7" class="display-block"><img width="600" height="400" src="https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/Blog-News_RPG_Maker_MZ_MV_Unite_RPG_Maker_XP_VX_Ace_2k_2k3_Giveaway.jpg" class="img-fluid rounded-lg mb-2" alt=""></a>
-<a target="_blank" href="https://forms.gle/db2EJA1Je6y19i6f7"><h4 class="h5 text-left" style="color:#e53b44;">Win FREE RPG Maker Software 🎁 Anya & Lolo's Little Giveaway!</h4></a>
-<div class="entry-meta text-left text-muted small">
- <i><span class="posted-on">Posted on <a target="_blank" href="https://forms.gle/db2EJA1Je6y19i6f7" rel="bookmark"><time class="entry-date published" datetime="2025-08-14T09:44:45+00:00">August 14, 2025</time></a></span><span class="byline"> by<span class="author vcard"> <a class="url fn n" href="http://anya-and-lolo.itch.io/">Anya & Lolo</a></span></span></i>
-</div>
-<div class="text-left mt-2"><p>Anya & Lolo are giving away copies of RPG Maker! Missing one? I’ll cover the costs for you, just lend a little hand in return! (,,> ᴗ <,,)</p></div>
-<div class="text-center"><a target="_blank" href="https://forms.gle/db2EJA1Je6y19i6f7" class="btn btn-primary"><b>✋ Want in? Click Here to Join</b></a></div>     
-    </div><!--//loop item-->
-    
-    <div class="loop-item col">
-      <a target="_blank" href="https://www.youtube.com/@Anya_and_Lolo" class="display-block"><img width="440" height="400" src="https://raw.githubusercontent.com/Anya-and-Lolo/ItchBlog/main/anya-and-lolo.jpg" class="img-fluid rounded-lg mb-2" alt=""></a>    
-<div class="text-left mt-2"><center>More RPG Maker tips and tricks on socials! ✨ <br><br></center></div>
-<div class="text-center">
-<a target="_blank" href="https://www.youtube.com/@Anya_and_Lolo" class="btn btn-primary" style="background-color: #f4184c; border-color: #f4184c;"><b>YouTube</b></a>
-<a target="_blank" href="https://bio.site/hianya" class="btn btn-primary"><b>All Socials</b></a>
-<a target="_blank" href="https://anya-and-lolo.github.io/ItchBlog/blog-archive.html" class="btn btn-secondary"><b>Posts Archive</b></a>
-</div>
-   </div><!--//loop item-->
-	
-  </div><!--//row-->
-  
-</div><!--//container-->
+          <a target="_blank" rel="noopener"
+             href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true">
+            <h4 class="h5 text-left">What If All RPG Maker News Were Delivered Right to Your Inbox? 💌</h4>
+          </a>
 
+          <div class="entry-meta text-left small">
+            <i>Posted on <time datetime="2025-11-17T09:44:45+00:00">November 17, 2025</time> by Anya &amp; Lolo</i>
+          </div>
+
+          <div class="text-left mt-2">
+            <p>If you're interested in free RPG Maker plugins, tips, game development tutorials, and assets, subscribe to our Game Development Digest!</p>
+          </div>
+
+          <div class="text-center">
+            <a target="_blank" rel="noopener"
+               href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+               class="btn btn-primary">
+              <b>✍ Yes! Send Me the Plugins</b>
+            </a>
+          </div>
+        </div>
+
+        <!-- keep your other loop items as-is (they inherit the styling now) -->
+        <!-- ... -->
+
+      </div>
+    </div>
+
+    <script>
+      const cssElement = document.querySelector("#compiled-css");
+      window.addEventListener("message", (message) => {
+        if (message.data.css)  cssElement.textContent = message.data.css.payload;
+        if (message.data.html) document.body.innerHTML = message.data.html.payload;
+      });
+    </script>
   </body>
-
-  <script>
-    const allLines = []
-    const cssElement = document.querySelector("#compiled-css")
-
-    window.addEventListener("message", (message) => {
-
-      if (message.data.css){
-        cssElement.textContent = message.data.css.payload
-      }
-
-      if (message.data.html){
-        document.body.innerHTML = message.data.html.payload
-      }
-    })
-  </script>
-
 </html>
-
-
-
-
-
