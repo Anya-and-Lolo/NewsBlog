@@ -151,6 +151,44 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 }
 .btnRow{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
 
+
+/* In-iframe scroll controls (work wherever this iframe is embedded) */
+.scroll-container{ position:relative; }
+.scroll-row{ position:relative; scrollbar-width:none; -ms-overflow-style:none; }
+.scroll-row::-webkit-scrollbar{ width:0; height:0; display:none; }
+.newsNav{
+  position:absolute;
+  top: calc((var(--embedH) + var(--headerH)) / 2);
+  transform: translateY(-50%);
+  width:42px; height:42px; border-radius:999px; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  background:#f4184c; color:#fff; border:0; cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,.22); z-index:6;
+  transition: transform .12s ease, background .12s ease, opacity .15s ease;
+}
+.newsNav:hover{ background:#d80f3e; transform:translateY(-50%) scale(1.06); }
+.newsNav svg{ width:22px; height:22px; }
+.newsNav.next{ right:10px; }
+.newsNav.prev{ left:10px; }
+@keyframes arrowNudgeR{ 0%,80%,100%{ transform:translateX(0); } 86%{ transform:translateX(4px); } 92%{ transform:translateX(0); } 98%{ transform:translateX(4px); } }
+@keyframes arrowNudgeL{ 0%,80%,100%{ transform:translateX(0); } 86%{ transform:translateX(-4px); } 92%{ transform:translateX(0); } 98%{ transform:translateX(-4px); } }
+@media (prefers-reduced-motion: no-preference){
+  .newsNav.next svg{ animation:arrowNudgeR 5s ease-in-out infinite; }
+  .newsNav.prev svg{ animation:arrowNudgeL 5s ease-in-out infinite; }
+}
+.newsDotsIn{
+  position:absolute; left:0; right:0; bottom:8px;
+  display:flex; gap:7px; justify-content:center; align-items:center; z-index:6;
+}
+.newsDotsIn button{
+  width:9px; height:9px; padding:0; border:0; border-radius:999px;
+  background:rgba(244,24,76,0.30); cursor:pointer;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+  transition: width .15s ease, background .15s ease;
+}
+.newsDotsIn button.on{ width:22px; background:#f4184c; }
+@media(max-width:600px){ .newsNav{ width:38px; height:38px; } }
+
     </style>
   </head>
 
@@ -415,6 +453,61 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
             row.scrollLeft += e.deltaY;
           }
         }, { passive: false });
+      })();
+
+      // Arrow + dot navigation
+      (() => {
+        const row  = document.querySelector(".scroll-row");
+        const cont = document.querySelector(".scroll-container");
+        if (!row || !cont) return;
+        const items = Array.from(row.querySelectorAll(".loop-item"));
+        if (!items.length) return;
+
+        const mk = (cls, label, d) => {
+          const b = document.createElement("button");
+          b.type = "button"; b.className = "newsNav " + cls; b.setAttribute("aria-label", label);
+          b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
+          return b;
+        };
+        const prev = mk("prev", "Previous news", "m15 18-6-6 6-6");
+        const next = mk("next", "Next news", "m9 18 6-6-6-6");
+        const dots = document.createElement("div"); dots.className = "newsDotsIn";
+        items.forEach((it, i) => {
+          const d = document.createElement("button");
+          d.type = "button"; d.setAttribute("aria-label", "Go to news " + (i + 1));
+          d.addEventListener("click", () => go(i));
+          dots.appendChild(d);
+        });
+        cont.appendChild(prev); cont.appendChild(next); cont.appendChild(dots);
+
+        const base = items[0].offsetLeft;
+        function curIdx(){
+          let idx = 0, min = Infinity;
+          items.forEach((it, i) => {
+            const dd = Math.abs((it.offsetLeft - base) - row.scrollLeft);
+            if (dd < min){ min = dd; idx = i; }
+          });
+          return idx;
+        }
+        function go(i){
+          i = Math.max(0, Math.min(items.length - 1, i));
+          row.scrollTo({ left: items[i].offsetLeft - base, behavior: "smooth" });
+        }
+        next.addEventListener("click", () => {
+          const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
+          if (atEnd) go(0); else go(curIdx() + 1);
+        });
+        prev.addEventListener("click", () => go(curIdx() - 1));
+        function update(){
+          const c = curIdx();
+          Array.from(dots.children).forEach((d, i) => d.classList.toggle("on", i === c));
+          const atStart = row.scrollLeft <= 2;
+          prev.style.opacity = atStart ? "0" : "1";
+          prev.style.pointerEvents = atStart ? "none" : "auto";
+        }
+        row.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+        window.addEventListener("resize", update);
+        update();
       })();
     </script>
     
