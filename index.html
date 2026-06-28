@@ -96,7 +96,15 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 @media(max-width:600px){
   .loop-item{ width: clamp(250px, 86vw, 340px); }
 }
+/* Default 600×400 uploads keep their natural 3:2 display.
+   Any other image size is automatically placed in the same 3:2 frame and centre-cropped. */
 .loop-item img{ width:100%; height:auto; display:block; border-radius:12px; }
+.loop-item img.newsImage.autoCrop{
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
 .scroll-container{color: var(--muted);}
 
 .scroll-container p,
@@ -205,7 +213,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
         
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://www.patreon.com/anya_and_lolo/posts/may-june-check-162036621/">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Wolf-RPG-Editor-Anya-and-Lolo.gif" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/Wolf-RPG-Editor-Anya-and-Lolo.gif" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://www.patreon.com/anya_and_lolo/posts/may-june-check-162036621/">
@@ -236,7 +244,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya_and_Lolo_Substack_Newsletter_RPG_Maker_Free_Plugins_Gamedev_Assets_Game_Development_Resources_RPG_Maker_Tips_Tricks.jpg" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya_and_Lolo_Substack_Newsletter_RPG_Maker_Free_Plugins_Gamedev_Assets_Game_Development_Resources_RPG_Maker_Tips_Tricks.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://open.substack.com/pub/anyalolo/p/game-development-digest-rpg-maker?r=6ty83v&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true">
@@ -265,7 +273,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-MV-MZ-Visual-Novel-System-Cutscenes-Dialogue-Effects.jpg" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-MV-MZ-Visual-Novel-System-Cutscenes-Dialogue-Effects.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system">
@@ -299,7 +307,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://forms.gle/ypNZDwM1kz4QX7Gw5">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya-and-Lolo-Giveaway-Kind-Words.jpg" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya-and-Lolo-Giveaway-Kind-Words.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://forms.gle/ypNZDwM1kz4QX7Gw5">
@@ -330,7 +338,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-fishing-minigame-system">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-MV-MZ-XP-Fishing-Minigame-System.jpg" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-MV-MZ-XP-Fishing-Minigame-System.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-fishing-minigame-system">
@@ -360,8 +368,39 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
 
   <div class="loop-item">
+    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-plugins-for-mz-mv">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/GIFS/RPG-Maker-Picture-Tooltip-Plugin-MZ-MV.gif" alt="">
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-plugins-for-mz-mv">
+      <div class="cardTitle text-left">RPG Maker Plugin Garden, Where Plugins Grow Like Crops 🐌🌿</div>
+    </a>
+
+    <div class="entry-meta text-left small">
+         <i>Posted on <time datetime="2026-01-26">26 January 2026</time> by Anya &amp; Lolo</i>
+       </div>
+
+    <div class="text-left mt-2">
+      <p>A new cozy corner is open! Sprouting today: a Plugin Garden where little plugins help developers learn and build together.</p>
+    </div>
+
+    
+    <div class="cardSpacer" aria-hidden="true"></div>
+    <div class="cardBottom">
+      <div class="btnRow">
+        
+          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-plugins-for-mz-mv"
+             class="btnAL ">🌱 Come Visit The Garden</a>
+        
+      </div>
+    </div>
+  
+  </div>
+
+
+  <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-guitar-hero-rhythm-minigame">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-Guitar-Hero-Rhythm-Minigame-MV-MZ.jpg" alt="">
+      <img class="img-fluid mb-2 newsImage" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-Guitar-Hero-Rhythm-Minigame-MV-MZ.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-guitar-hero-rhythm-minigame">
@@ -388,37 +427,6 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
     </div>
   
   </div>
-
-
-  <div class="loop-item">
-    <a target="_blank" rel="noopener" href="https://itch.io/s/163176/happy-halloween-sale-">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya_and_Lolo_Halloween.jpg" alt="">
-    </a>
-
-    <a target="_blank" rel="noopener" href="https://itch.io/s/163176/happy-halloween-sale-">
-      <div class="cardTitle text-left">It&#039;s Here! Happy Halloween Sale 🦇 Join The Party! 👻</div>
-    </a>
-
-    <div class="entry-meta text-left small">
-         <i>Posted on <time datetime="2025-10-26">26 October 2025</time> by Anya &amp; Lolo</i>
-       </div>
-
-    <div class="text-left mt-2">
-      <p>It’s been too long since our last sale, so we’re throwing open the doors to a Halloween party full of treats (and no tricks!) 💜</p>
-    </div>
-
-    
-    <div class="cardSpacer" aria-hidden="true"></div>
-    <div class="cardBottom">
-      <div class="btnRow">
-        
-          <a target="_blank" rel="noopener" href="https://itch.io/s/163176/happy-halloween-sale-"
-             class="btnAL ">🍬 Will You Join the Fun?</a>
-        
-      </div>
-    </div>
-  
-  </div>
         
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://www.youtube.com/@Anya_and_Lolo">
@@ -437,6 +445,22 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
   </div>
       </div>
     </div>
+	
+    <script>
+      // Keep standard 600×400 uploads untouched. Any other intrinsic image size
+      // gets a 3:2 crop frame so every card stays aligned.
+      (() => {
+        const update = (img) => {
+          const shouldCrop = img.naturalWidth && img.naturalHeight &&
+            !(img.naturalWidth === 600 && img.naturalHeight === 400);
+          img.classList.toggle("autoCrop", !!shouldCrop);
+        };
+        document.querySelectorAll("img.newsImage").forEach((img) => {
+          if (img.complete) update(img);
+          img.addEventListener("load", () => update(img), { once: true });
+        });
+      })();
+    </script>
 	
     <script>
       // convert wheel → horizontal scroll
