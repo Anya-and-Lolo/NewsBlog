@@ -149,45 +149,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
   color: rgba(27,27,27,0.88) !important;
   border: 1px solid rgba(20,20,20,0.14);
 }
-.btnRow{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; 
-}
-
-/* In-iframe scroll controls (work wherever this iframe is embedded) */
-.scroll-container{ position:relative; }
-.scroll-row{ position:relative; scrollbar-width:none; -ms-overflow-style:none; }
-.scroll-row::-webkit-scrollbar{ width:0; height:0; display:none; }
-.newsNav{
-  position:absolute;
-  top: calc((var(--embedH) + var(--headerH)) / 2);
-  transform: translateY(-50%);
-  width:42px; height:42px; border-radius:999px; padding:0;
-  display:flex; align-items:center; justify-content:center;
-  background:#f4184c; color:#fff; border:0; cursor:pointer;
-  box-shadow:0 8px 18px rgba(0,0,0,.22); z-index:6;
-  transition: transform .12s ease, background .12s ease, opacity .15s ease;
-}
-.newsNav:hover{ background:#d80f3e; transform:translateY(-50%) scale(1.06); }
-.newsNav svg{ width:22px; height:22px; }
-.newsNav.next{ right:10px; }
-.newsNav.prev{ left:10px; }
-@keyframes arrowNudgeR{ 0%,80%,100%{ transform:translateX(0); } 86%{ transform:translateX(4px); } 92%{ transform:translateX(0); } 98%{ transform:translateX(4px); } }
-@keyframes arrowNudgeL{ 0%,80%,100%{ transform:translateX(0); } 86%{ transform:translateX(-4px); } 92%{ transform:translateX(0); } 98%{ transform:translateX(-4px); } }
-@media (prefers-reduced-motion: no-preference){
-  .newsNav.next svg{ animation:arrowNudgeR 5s ease-in-out infinite; }
-  .newsNav.prev svg{ animation:arrowNudgeL 5s ease-in-out infinite; }
-}
-.newsDotsIn{
-  position:absolute; left:0; right:0; bottom:8px;
-  display:flex; gap:7px; justify-content:center; align-items:center; z-index:6;
-}
-.newsDotsIn button{
-  width:9px; height:9px; padding:0; border:0; border-radius:999px;
-  background:rgba(244,24,76,0.30); cursor:pointer;
-  box-shadow:0 1px 3px rgba(0,0,0,.25);
-  transition: width .15s ease, background .15s ease;
-}
-.newsDotsIn button.on{ width:22px; background:#f4184c; }
-@media(max-width:600px){ .newsNav{ width:38px; height:38px; } }
+.btnRow{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
 
     </style>
   </head>
@@ -230,77 +192,12 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
 
 
   <div class="loop-item">
-    <a target="_blank" rel="noopener" href="https://www.patreon.com/anya_and_lolo/posts/may-june-check-162036621/">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Wolf-RPG-Editor-Anya-and-Lolo.gif" alt="">
-    </a>
-
-    <a target="_blank" rel="noopener" href="https://www.patreon.com/anya_and_lolo/posts/may-june-check-162036621/">
-      <div class="cardTitle text-left">Discover the Exciting News We&#039;ve Been Waiting to Share 🐺</div>
-    </a>
-
-    <div class="entry-meta text-left small">
-      <i>Posted on <time datetime="2026-06-27">27 June 2026</time> by Anya &amp; Lolo</i>
-    </div>
-
-    <div class="text-left mt-2">
-      <p>These past months have been busy, but they have also helped open up a much bigger chapter for Anya &amp; Lolo ❤</p>
-    </div>
-
-    
-    <div class="cardSpacer" aria-hidden="true"></div>
-    <div class="cardBottom">
-      <div class="btnRow">
-        
-          <a target="_blank" rel="noopener" href="https://www.patreon.com/anya_and_lolo/posts/may-june-check-162036621/"
-             class="btnAL ">Find Out More?</a>
-        
-      </div>
-    </div>
-  
-  </div>
-
-
-  <div class="loop-item">
-    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-MV-MZ-Visual-Novel-System-Cutscenes-Dialogue-Effects.jpg" alt="">
-    </a>
-
-    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system">
-      <div class="cardTitle text-left">RPG Maker MV/MZ Visual Novel System - HUGE Update! 👀</div>
-    </a>
-
-    <div class="entry-meta text-left small">
-      <i>Posted on <time datetime="2026-05-05">5 May 2026</time> by Anya &amp; Lolo</i>
-    </div>
-
-    <div class="text-left mt-2">
-      <p>I felt that this system needed some love from me. So I rebuilt the whole thing! It’s just feels better the moment you try it (๑˃ᴗ˂)ﻭ</p>
-    </div>
-
-    
-    <div class="cardSpacer" aria-hidden="true"></div>
-    <div class="cardBottom">
-      <div class="btnRow">
-        
-          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system"
-             class="btnAL ">Try It Here!</a>
-        
-          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-visual-novel-system/devlog/1514131/visual-novel-effects-system-huge-update-rpg-maker-mvmz"
-             class="btnAL secondary">What&#039;s New?</a>
-        
-      </div>
-    </div>
-  
-  </div>
-
-
-  <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://forms.gle/ypNZDwM1kz4QX7Gw5">
       <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya-and-Lolo-Giveaway-Kind-Words.jpg" alt="">
     </a>
 
     <a target="_blank" rel="noopener" href="https://forms.gle/ypNZDwM1kz4QX7Gw5">
-      <div class="cardTitle text-left">Anya &amp; Lolo Giveaway: Kind Words For Kind People 🌸</div>
+      <div class="cardTitle text-left">A Small Gift For You: Kind Words For Kind People 🌸</div>
     </a>
 
     <div class="entry-meta text-left small">
@@ -308,7 +205,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
     </div>
 
     <div class="text-left mt-2">
-      <p>I’d like to give away steam keys of Kind Words 2 🎮 It’s a gentle little game where people write kind messages to each other!</p>
+      <p>I want to share a few copies of &quot;Kind Words 2&quot; to bring a bit of calm 🎮 A gentle game about writing kind messages to real people :)</p>
     </div>
 
     
@@ -317,38 +214,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
       <div class="btnRow">
         
           <a target="_blank" rel="noopener" href="https://forms.gle/ypNZDwM1kz4QX7Gw5"
-             class="btnAL ">💛 Oh, I&#039;d Love To Play It!</a>
-        
-      </div>
-    </div>
-  
-  </div>
-
-
-  <div class="loop-item">
-    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-guitar-hero-rhythm-minigame">
-      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/RPG-Maker-Guitar-Hero-Rhythm-Minigame-MV-MZ.jpg" alt="">
-    </a>
-
-    <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-guitar-hero-rhythm-minigame">
-      <div class="cardTitle text-left">Rhythm Hero is Out! RPG Maker MZ/MV Music Minigame 🎸</div>
-    </a>
-
-    <div class="entry-meta text-left small">
-      <i>Posted on <time datetime="2026-01-10">10 January 2026</time> by Anya &amp; Lolo</i>
-    </div>
-
-    <div class="text-left mt-2">
-      <p>I&#039;m super excited to finally share Rhythm Hero, a Guitar Hero &amp; DDR-Style Minigame for RPG Maker! Check It Out ♫꒰･◡･๑꒱</p>
-    </div>
-
-    
-    <div class="cardSpacer" aria-hidden="true"></div>
-    <div class="cardBottom">
-      <div class="btnRow">
-        
-          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/rpg-maker-guitar-hero-rhythm-minigame"
-             class="btnAL ">Have You Tried It Yet?</a>
+             class="btnAL ">💛 Oh, I’d Love A Copy!</a>
         
       </div>
     </div>
@@ -416,6 +282,105 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
     </div>
   
   </div>
+
+
+  <div class="loop-item">
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g_lLFJqsy8g">
+      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-News-Day_Night_Cycle_in_RPG_Maker_MZ_MV_XP_Ace.jpg" alt="">
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g_lLFJqsy8g">
+      <div class="cardTitle text-left">Day &amp; Night System Re-FORGED To V3.0: Even More Goodies!</div>
+    </a>
+
+    <div class="entry-meta text-left small">
+      <i>Posted on <time datetime="2025-07-01">1 July 2025</time> by Anya &amp; Lolo</i>
+    </div>
+
+    <div class="text-left mt-2">
+      <p>We dropped a fresh YouTube tutorial to go with your demo download. Plus, V3.0 is now packed with extra goodies! 🌞</p>
+    </div>
+
+    
+    <div class="cardSpacer" aria-hidden="true"></div>
+    <div class="cardBottom">
+      <div class="btnRow">
+        
+          <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=g_lLFJqsy8g"
+             class="btnAL ">🎥 Video</a>
+        
+          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/daynightsystem/devlog/977559/-video-tutorial-out-make-day-night-cycle-in-any-rpg-maker"
+             class="btnAL secondary">Devlog #1</a>
+        
+          <a target="_blank" rel="noopener" href="https://anya-and-lolo.itch.io/daynightsystem/devlog/956657/-day-night-system-re-forged-to-v30-even-more-goodies"
+             class="btnAL secondary">Devlog #2</a>
+        
+      </div>
+    </div>
+  
+  </div>
+
+
+  <div class="loop-item">
+    <a target="_blank" rel="noopener" href="https://itch.io/s/151807/-anya-lolo-1-year-anniversary">
+      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-Anya_and_Lolo_Anniversary.jpg" alt="">
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://itch.io/s/151807/-anya-lolo-1-year-anniversary">
+      <div class="cardTitle text-left">Let&#039;s Celebrate Anya &amp; Lolo&#039;s One Year Anniversary with a SALE!</div>
+    </a>
+
+    <div class="entry-meta text-left small">
+      <i>Posted on <time datetime="2025-04-22">22 April 2025</time> by Anya &amp; Lolo</i>
+    </div>
+
+    <div class="text-left mt-2">
+      <p>Guess what? It’s been one year of RPG Maker goodies + fun tutorials from us, so let’s celebrate all month long! 🥳🎉</p>
+    </div>
+
+    
+    <div class="cardSpacer" aria-hidden="true"></div>
+    <div class="cardBottom">
+      <div class="btnRow">
+        
+          <a target="_blank" rel="noopener" href="https://itch.io/s/151807/-anya-lolo-1-year-anniversary"
+             class="btnAL ">🎈 Join the Party</a>
+        
+      </div>
+    </div>
+  
+  </div>
+
+
+  <div class="loop-item">
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WqYna6SDv70&amp;list=PLa_AhIV96MuZBex9o0ULiuLkh1jF4ANL0">
+      <img class="img-fluid mb-2" src="https://anya-and-lolo.github.io/NewsBlog/images/Blog-News-FFMasterclass.jpg" alt="">
+    </a>
+
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WqYna6SDv70&amp;list=PLa_AhIV96MuZBex9o0ULiuLkh1jF4ANL0">
+      <div class="cardTitle text-left">Upcoming Tutorial Series! Let&#039;s Learn RPG Maker With A Twist 👀</div>
+    </a>
+
+    <div class="entry-meta text-left small">
+      <i>Posted on <time datetime="2025-03-25">25 March 2025</time> by Anya &amp; Lolo</i>
+    </div>
+
+    <div class="text-left mt-2">
+      <p>Heads up! I’m working on a new tutorial series for RPG Maker MZ &amp; MV, that are bite-sized, fun, and... a little different 😏</p>
+    </div>
+
+    
+    <div class="cardSpacer" aria-hidden="true"></div>
+    <div class="cardBottom">
+      <div class="btnRow">
+        
+          <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WqYna6SDv70&amp;list=PLa_AhIV96MuZBex9o0ULiuLkh1jF4ANL0"
+             class="btnAL ">▶ Watch the Announcement</a>
+        
+      </div>
+    </div>
+  
+  </div>
         
   <div class="loop-item">
     <a target="_blank" rel="noopener" href="https://www.youtube.com/@Anya_and_Lolo">
@@ -434,7 +399,7 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
   </div>
       </div>
     </div>
-	
+
     <script>
       // convert wheel → horizontal scroll
       (() => {
@@ -447,61 +412,6 @@ html{ scrollbar-color: var(--scrollThumb) var(--scrollTrack); scrollbar-width:au
             row.scrollLeft += e.deltaY;
           }
         }, { passive: false });
-      })();
-
-      // Arrow + dot navigation
-      (() => {
-        const row  = document.querySelector(".scroll-row");
-        const cont = document.querySelector(".scroll-container");
-        if (!row || !cont) return;
-        const items = Array.from(row.querySelectorAll(".loop-item"));
-        if (!items.length) return;
-
-        const mk = (cls, label, d) => {
-          const b = document.createElement("button");
-          b.type = "button"; b.className = "newsNav " + cls; b.setAttribute("aria-label", label);
-          b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
-          return b;
-        };
-        const prev = mk("prev", "Previous news", "m15 18-6-6 6-6");
-        const next = mk("next", "Next news", "m9 18 6-6-6-6");
-        const dots = document.createElement("div"); dots.className = "newsDotsIn";
-        items.forEach((it, i) => {
-          const d = document.createElement("button");
-          d.type = "button"; d.setAttribute("aria-label", "Go to news " + (i + 1));
-          d.addEventListener("click", () => go(i));
-          dots.appendChild(d);
-        });
-        cont.appendChild(prev); cont.appendChild(next); cont.appendChild(dots);
-
-        const base = items[0].offsetLeft;
-        function curIdx(){
-          let idx = 0, min = Infinity;
-          items.forEach((it, i) => {
-            const dd = Math.abs((it.offsetLeft - base) - row.scrollLeft);
-            if (dd < min){ min = dd; idx = i; }
-          });
-          return idx;
-        }
-        function go(i){
-          i = Math.max(0, Math.min(items.length - 1, i));
-          row.scrollTo({ left: items[i].offsetLeft - base, behavior: "smooth" });
-        }
-        next.addEventListener("click", () => {
-          const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
-          if (atEnd) go(0); else go(curIdx() + 1);
-        });
-        prev.addEventListener("click", () => go(curIdx() - 1));
-        function update(){
-          const c = curIdx();
-          Array.from(dots.children).forEach((d, i) => d.classList.toggle("on", i === c));
-          const atStart = row.scrollLeft <= 2;
-          prev.style.opacity = atStart ? "0" : "1";
-          prev.style.pointerEvents = atStart ? "none" : "auto";
-        }
-        row.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
-        window.addEventListener("resize", update);
-        update();
       })();
     </script>
     
